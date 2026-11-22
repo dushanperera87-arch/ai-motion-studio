@@ -108,7 +108,24 @@ photo.addEventListener("change", () => {
   preview.style.display = "block";
   message.textContent = "Image uploaded successfully!";
 });
-document.getElementById("generate").addEventListener("click", () => {
+document.getElementById("generate").addEventListener("click", () => {document.getElementById("generate").addEventListener("click", () => {
+  const file = photo.files[0];
+  const prompt = document.getElementById("prompt").value.trim();
+
+  if (!file) {
+    message.textContent = "❌ Please upload an image first.";
+    return;
+  }
+
+  if (!prompt) {
+    message.textContent = "❌ Please enter your video prompt.";
+    return;
+  }
+
+  message.textContent = "✅ Button is working! Your image and prompt are ready.";
+
+  alert("Generate button is working successfully!");
+});
   if (!photo.files.length) {
     message.textContent = "Please upload an image first.";
     return;
